@@ -1,0 +1,9 @@
+- .net core 获取appsrtting.json里的配置项
+
+```c#
+//如果是获取到对象可以使用这个
+var IpRateLimitingConfig= Configuration.GetSection("IpRateLimiting").Get<IpRateLimitOptions>();
+
+//如果是配置到Service里可以使用这个
+services.Configure<IpRateLimitOptions>(Configuration.GetSection("IpRateLimiting"));
+```
